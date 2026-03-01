@@ -37,14 +37,14 @@ const InputForm = ({ onStart }) => {
 
     const selectStyle = {
         width: '100%',
-        padding: '18px 10px',
+        padding: 'clamp(12px, 2.5vh, 18px) clamp(5px, 2vw, 10px)',
         background: 'rgba(255, 255, 255, 0.03)',
         border: '1px solid rgba(212, 175, 55, 0.2)',
         color: '#fff',
         borderRadius: '12px',
         outline: 'none',
         cursor: 'pointer',
-        fontSize: '0.95rem',
+        fontSize: 'clamp(0.85rem, 3.5vw, 0.95rem)',
         fontFamily: '"Noto Serif KR", serif'
     };
 
@@ -69,8 +69,8 @@ const InputForm = ({ onStart }) => {
         >
             {/* Background Image with Blended Edges */}
             <div className="bg-mask-edge" style={{
-                position: 'absolute',
-                inset: 0,
+                position: 'fixed',
+                top: 0, left: 0, right: 0, bottom: 0,
                 backgroundImage: 'url("/input_bg.png")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -111,7 +111,7 @@ const InputForm = ({ onStart }) => {
                 style={{
                     width: '100%',
                     maxWidth: '550px',
-                    padding: '60px 45px',
+                    padding: 'clamp(30px, 6vh, 60px) clamp(20px, 5vw, 45px)',
                     borderRadius: '24px',
                     position: 'relative',
                     zIndex: 2,
@@ -174,7 +174,7 @@ const InputForm = ({ onStart }) => {
                         </svg>
                     </motion.div>
                     <h1 className="calligraphy" style={{
-                        fontSize: '3.2rem',
+                        fontSize: 'clamp(2.5rem, 8vw, 3.2rem)',
                         letterSpacing: '0.1em',
                         color: '#d4af37',
                         marginBottom: '5px',
@@ -182,7 +182,7 @@ const InputForm = ({ onStart }) => {
                     }}>K-SAJU</h1>
                     <p style={{
                         color: '#d4af37',
-                        fontSize: '0.9rem',
+                        fontSize: 'clamp(0.7rem, 2.5vw, 0.9rem)',
                         letterSpacing: '0.5em',
                         textTransform: 'uppercase',
                         opacity: 0.5,
@@ -193,12 +193,12 @@ const InputForm = ({ onStart }) => {
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: '35px' }}>
+                    <div style={{ marginBottom: 'clamp(20px, 4vh, 35px)' }}>
                         <label style={{
                             display: 'block',
                             color: 'var(--gold)',
-                            marginBottom: '12px',
-                            fontSize: '0.85rem',
+                            marginBottom: '10px',
+                            fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)',
                             letterSpacing: '0.2em',
                             textTransform: 'uppercase',
                             fontWeight: 'bold',
@@ -214,24 +214,24 @@ const InputForm = ({ onStart }) => {
                             required
                             style={{
                                 width: '100%',
-                                padding: '18px 25px',
+                                padding: 'clamp(12px, 2.5vh, 18px) clamp(15px, 4vw, 25px)',
                                 background: 'rgba(255,255,255,0.03)',
                                 border: '1px solid rgba(212, 175, 55, 0.2)',
                                 borderRadius: '12px',
                                 color: '#fff',
-                                fontSize: '1.2rem',
+                                fontSize: 'clamp(1rem, 4vw, 1.2rem)',
                                 fontFamily: '"Noto Serif KR", serif',
                                 textAlign: 'center'
                             }}
                         />
                     </div>
 
-                    <div style={{ marginBottom: '35px' }}>
+                    <div style={{ marginBottom: 'clamp(20px, 4vh, 35px)' }}>
                         <label style={{
                             display: 'block',
                             color: 'var(--gold)',
-                            marginBottom: '12px',
-                            fontSize: '0.85rem',
+                            marginBottom: '10px',
+                            fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)',
                             letterSpacing: '0.2em',
                             textTransform: 'uppercase',
                             fontWeight: 'bold',
@@ -239,7 +239,7 @@ const InputForm = ({ onStart }) => {
                         }}>
                             Birth Date
                         </label>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: '15px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: 'clamp(8px, 2vw, 15px)' }}>
                             <select
                                 value={year}
                                 onChange={(e) => setYear(e.target.value)}
@@ -270,11 +270,11 @@ const InputForm = ({ onStart }) => {
                         </div>
                     </div>
 
-                    <div style={{ marginBottom: '50px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                    <div style={{ marginBottom: 'clamp(30px, 6vh, 50px)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                             <label style={{
                                 color: 'var(--gold)',
-                                fontSize: '0.85rem',
+                                fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)',
                                 letterSpacing: '0.2em',
                                 textTransform: 'uppercase',
                                 fontWeight: 'bold',
@@ -282,7 +282,7 @@ const InputForm = ({ onStart }) => {
                             }}>
                                 Birth Time
                             </label>
-                            <label style={{ color: 'rgba(212,175,55,0.6)', fontSize: '0.75rem', display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                            <label style={{ color: 'rgba(212,175,55,0.6)', fontSize: 'clamp(0.65rem, 2.5vw, 0.75rem)', display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
                                 <input
                                     type="checkbox"
                                     checked={isTimeUnknown}
@@ -331,12 +331,12 @@ const InputForm = ({ onStart }) => {
                         type="submit"
                         style={{
                             width: '100%',
-                            padding: '22px',
+                            padding: 'clamp(16px, 3vh, 22px)',
                             background: 'linear-gradient(135deg, #d4af37 0%, #b08d26 100%)',
                             color: '#1a0f00',
                             border: 'none',
                             borderRadius: '12px',
-                            fontSize: '1.2rem',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',
                             fontWeight: 'bold',
                             letterSpacing: '0.25em',
                             textTransform: 'uppercase',
@@ -349,7 +349,7 @@ const InputForm = ({ onStart }) => {
                     </motion.button>
                 </form>
             </motion.div>
-        </motion.div>
+        </motion.div >
     );
 };
 

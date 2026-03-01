@@ -197,7 +197,8 @@ const ScrollItem = ({ title, content }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 style={{
                     width: '100%',
-                    height: '90px',
+                    minHeight: 'clamp(70px, 14vw, 90px)',
+                    padding: 'clamp(10px, 3vw, 20px)',
                     background: 'linear-gradient(135deg, rgba(42, 27, 18, 0.95), rgba(15, 10, 5, 0.98))',
                     backdropFilter: 'blur(15px)',
                     WebkitBackdropFilter: 'blur(15px)',
@@ -230,17 +231,19 @@ const ScrollItem = ({ title, content }) => {
                 <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '15px', background: 'linear-gradient(-90deg, #d4af37 0%, transparent 100%)', opacity: 0.4 }} />
 
                 <span className="calligraphy" style={{
-                    fontSize: '2rem',
+                    fontSize: 'clamp(1.1rem, 5vw, 2rem)',
                     textShadow: '0 4px 15px rgba(0,0,0,0.8)',
                     position: 'relative',
                     zIndex: 2,
-                    padding: '0 40px',
-                    letterSpacing: '0'
+                    padding: '0 clamp(10px, 4vw, 40px)',
+                    letterSpacing: '0',
+                    textAlign: 'center',
+                    wordBreak: 'keep-all'
                 }}>{title}</span>
 
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
-                    style={{ position: 'absolute', right: '30px', zIndex: 2 }}
+                    style={{ position: 'absolute', right: 'clamp(10px, 4vw, 30px)', zIndex: 2 }}
                 >
                     <ChevronDown size={32} color="var(--gold)" />
                 </motion.div>
@@ -282,7 +285,7 @@ const ScrollItem = ({ title, content }) => {
                         transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
                         style={{
                             overflow: 'hidden',
-                            margin: '0 8px',
+                            margin: '0 clamp(0px, 1vw, 8px)',
                             background: '#fcf3e3',
                             backgroundImage: 'url("https://www.transparenttextures.com/patterns/natural-paper.png")',
                             boxShadow: 'inset 0 0 80px rgba(0,0,0,0.1), 0 30px 70px rgba(0,0,0,0.6)',
@@ -295,10 +298,10 @@ const ScrollItem = ({ title, content }) => {
                         }}
                     >
                         <div style={{
-                            padding: '60px 50px',
+                            padding: 'clamp(30px, 8vw, 60px) clamp(20px, 5vw, 50px)',
                             color: '#1a0f00',
-                            fontSize: '1.2rem',
-                            lineHeight: '2.5',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',
+                            lineHeight: 'clamp(1.8, 5vw, 2.5)',
                             textAlign: 'justify',
                             fontFamily: '"Noto Serif KR", serif',
                             whiteSpace: 'pre-wrap',
