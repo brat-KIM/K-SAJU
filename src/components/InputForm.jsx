@@ -37,7 +37,7 @@ const InputForm = ({ onStart }) => {
 
     const selectStyle = {
         width: '100%',
-        padding: 'clamp(12px, 2.5vh, 18px) clamp(5px, 2vw, 10px)',
+        padding: 'clamp(8px, 2vh, 18px) clamp(5px, 2vw, 10px)',
         background: 'rgba(255, 255, 255, 0.03)',
         border: '1px solid rgba(212, 175, 55, 0.2)',
         color: '#fff',
@@ -56,8 +56,9 @@ const InputForm = ({ onStart }) => {
             exit={{ opacity: 0, scale: 0.95 }}
             style={{
                 minHeight: '100vh',
+                height: '100svh',
                 width: '100%',
-                padding: '40px 20px',
+                padding: 'clamp(15px, 3vh, 40px) 20px',
                 position: 'relative',
                 overflowY: 'auto',
                 background: 'radial-gradient(circle at center, #1a0f00 0%, #050505 100%)',
@@ -111,7 +112,7 @@ const InputForm = ({ onStart }) => {
                 style={{
                     width: '100%',
                     maxWidth: '550px',
-                    padding: 'clamp(30px, 6vh, 60px) clamp(20px, 5vw, 45px)',
+                    padding: 'clamp(20px, 4vh, 60px) clamp(15px, 4vw, 45px)',
                     borderRadius: '24px',
                     position: 'relative',
                     zIndex: 2,
@@ -133,12 +134,12 @@ const InputForm = ({ onStart }) => {
                     pointerEvents: 'none'
                 }} />
 
-                <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(15px, 3vh, 50px)' }}>
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1 }}
-                        style={{ marginBottom: '25px' }}
+                        style={{ marginBottom: 'clamp(10px, 2vh, 25px)' }}
                     >
                         <svg width="70" height="70" viewBox="0 0 100 100">
                             <defs>
@@ -193,7 +194,7 @@ const InputForm = ({ onStart }) => {
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: 'clamp(20px, 4vh, 35px)' }}>
+                    <div style={{ marginBottom: 'clamp(10px, 2.5vh, 35px)' }}>
                         <label style={{
                             display: 'block',
                             color: 'var(--gold)',
@@ -214,7 +215,7 @@ const InputForm = ({ onStart }) => {
                             required
                             style={{
                                 width: '100%',
-                                padding: 'clamp(12px, 2.5vh, 18px) clamp(15px, 4vw, 25px)',
+                                padding: 'clamp(10px, 2vh, 18px) clamp(15px, 4vw, 25px)',
                                 background: 'rgba(255,255,255,0.03)',
                                 border: '1px solid rgba(212, 175, 55, 0.2)',
                                 borderRadius: '12px',
@@ -226,7 +227,7 @@ const InputForm = ({ onStart }) => {
                         />
                     </div>
 
-                    <div style={{ marginBottom: 'clamp(20px, 4vh, 35px)' }}>
+                    <div style={{ marginBottom: 'clamp(10px, 2.5vh, 35px)' }}>
                         <label style={{
                             display: 'block',
                             color: 'var(--gold)',
@@ -270,8 +271,8 @@ const InputForm = ({ onStart }) => {
                         </div>
                     </div>
 
-                    <div style={{ marginBottom: 'clamp(30px, 6vh, 50px)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                    <div style={{ marginBottom: 'clamp(15px, 3.5vh, 50px)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                             <label style={{
                                 color: 'var(--gold)',
                                 fontSize: 'clamp(0.75rem, 2.5vw, 0.85rem)',
@@ -331,7 +332,7 @@ const InputForm = ({ onStart }) => {
                         type="submit"
                         style={{
                             width: '100%',
-                            padding: 'clamp(16px, 3vh, 22px)',
+                            padding: 'clamp(12px, 2.5vh, 22px)',
                             background: 'linear-gradient(135deg, #d4af37 0%, #b08d26 100%)',
                             color: '#1a0f00',
                             border: 'none',

@@ -9,9 +9,33 @@ import { fetchSajuAnalysis } from './services/gemini';
 import './App.css';
 
 function App() {
-  const [stage, setStage] = useState('intro'); // intro, input, loading, result
+  const [stage, setStage] = useState(() => {
+    const hash = window.location.hash.replace('#', '');
+    return ['intro', 'input', 'result'].includes(hash) ? hash : 'intro';
+  });
   const [userData, setUserData] = useState(null);
   const [results, setResults] = useState(null);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['intro', 'input', 'result'].includes(hash)) {
+        setStage(hash);
+      } else if (!hash) {
+        setStage('input'); // Default to input on back from input (since intro redirects to input)
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  useEffect(() => {
+    if (stage !== 'loading') {
+      if (window.location.hash !== `#${stage}` && stage !== 'intro') {
+        window.history.pushState(null, '', `#${stage}`);
+      }
+    }
+  }, [stage]);
 
   useEffect(() => {
     if (stage === 'intro') {

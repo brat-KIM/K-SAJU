@@ -49,9 +49,9 @@ const ResultScreen = ({ results, userData }) => {
             className="result-screen result-page"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            style={{ padding: 'clamp(40px, 8vw, 80px) 20px', minHeight: '100vh', position: 'relative' }}
+            style={{ padding: 'clamp(30px, 6vw, 80px) clamp(5px, 2vw, 20px)', minHeight: '100vh', position: 'relative' }}
         >
-            <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '100%' }}>
                 <header style={{ textAlign: 'center', marginBottom: 'clamp(40px, 8vw, 80px)' }}>
                     <h2 style={{ color: 'var(--gold)', fontSize: '0.8rem', letterSpacing: '0.4em', textTransform: 'uppercase', opacity: 0.8 }}>Archive of Destiny</h2>
                     <h1 className="calligraphy" style={{
@@ -231,11 +231,11 @@ const ScrollItem = ({ title, content }) => {
                 <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '15px', background: 'linear-gradient(-90deg, #d4af37 0%, transparent 100%)', opacity: 0.4 }} />
 
                 <span className="calligraphy" style={{
-                    fontSize: 'clamp(1.1rem, 5vw, 2rem)',
+                    fontSize: 'clamp(1rem, 4.5vw, 2rem)',
                     textShadow: '0 4px 15px rgba(0,0,0,0.8)',
                     position: 'relative',
                     zIndex: 2,
-                    padding: '0 clamp(10px, 4vw, 40px)',
+                    padding: '0 clamp(5px, 2vw, 40px)',
                     letterSpacing: '0',
                     textAlign: 'center',
                     wordBreak: 'keep-all'
@@ -285,7 +285,7 @@ const ScrollItem = ({ title, content }) => {
                         transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
                         style={{
                             overflow: 'hidden',
-                            margin: '0 clamp(0px, 1vw, 8px)',
+                            margin: '0 clamp(0px, 0.5vw, 8px)',
                             background: '#fcf3e3',
                             backgroundImage: 'url("https://www.transparenttextures.com/patterns/natural-paper.png")',
                             boxShadow: 'inset 0 0 80px rgba(0,0,0,0.1), 0 30px 70px rgba(0,0,0,0.6)',
@@ -298,10 +298,10 @@ const ScrollItem = ({ title, content }) => {
                         }}
                     >
                         <div style={{
-                            padding: 'clamp(30px, 8vw, 60px) clamp(20px, 5vw, 50px)',
+                            padding: 'clamp(25px, 6vw, 60px) clamp(10px, 3vw, 50px)',
                             color: '#1a0f00',
-                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',
-                            lineHeight: 'clamp(1.8, 5vw, 2.5)',
+                            fontSize: 'clamp(0.95rem, 4vw, 1.2rem)',
+                            lineHeight: 'clamp(1.7, 4.5vw, 2.5)',
                             textAlign: 'justify',
                             fontFamily: '"Noto Serif KR", serif',
                             whiteSpace: 'pre-wrap',
