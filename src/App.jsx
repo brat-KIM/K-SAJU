@@ -26,8 +26,25 @@ function App() {
       }
     };
     window.addEventListener('popstate', handlePopState);
+
+    // Handle shared url
+    const urlParams = new URLSearchParams(window.location.search);
+    const sharedParam = urlParams.get('shared');
+
+    if (sharedParam) {
+      try {
+        const decoded = JSON.parse(decodeURIComponent(atob(sharedParam)));
+        // Auto-start analysis with shared data and remove the param from URL to prevent infinite reloads if refreshed
+        window.history.replaceState(null, '', window.location.pathname + '#loading');
+        handleStartAnalysis(decoded);
+      } catch (e) {
+        console.error("Invalid shared link", e);
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+
     return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, []); // Run once on mount
 
   useEffect(() => {
     if (stage !== 'loading') {
@@ -39,6 +56,10 @@ function App() {
 
   useEffect(() => {
     if (stage === 'intro') {
+      // Don't auto-redirect to input if we are processing a shared link
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('shared')) return;
+
       const timer = setTimeout(() => {
         setStage('input');
       }, 3500); // Intro forced to ~3.5s

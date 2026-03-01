@@ -20,16 +20,26 @@ const ResultScreen = ({ results, userData }) => {
     };
 
     const shareResults = () => {
-        const text = `Check out my K-SAJU & Numerology reading! 🌟\nEnergy Number: ${results.numerology.number}\n\nRead more at K-SAJU HUNTERS`;
-        if (navigator.share) {
-            navigator.share({
-                title: 'K-SAJU Reading',
-                text: text,
-                url: window.location.href,
-            });
-        } else {
-            navigator.clipboard.writeText(text);
-            alert('Results copied to clipboard!');
+        try {
+            // Encode user data so others can generate the same reading
+            const encodedData = btoa(encodeURIComponent(JSON.stringify(userData)));
+            const shareUrl = `${window.location.origin}${window.location.pathname}?shared=${encodedData}#result`;
+
+            const text = `Check out my K-SAJU & Numerology reading! 🌟\nEnergy Number: ${results.numerology.number}\n\nRead yours at Archive of Destiny!`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'K-SAJU Reading',
+                    text: text,
+                    url: shareUrl,
+                });
+            } else {
+                navigator.clipboard.writeText(`${text}\n${shareUrl}`);
+                alert('Results link copied to clipboard!');
+            }
+        } catch (e) {
+            console.error("Failed to generate share link", e);
+            alert("Failed to generate sharing link. Please try again.");
         }
     };
 
