@@ -61,6 +61,18 @@ const ResultScreen = ({ results, userData }) => {
             animate={{ opacity: 1 }}
             style={{ padding: 'clamp(30px, 6vw, 80px) clamp(5px, 2vw, 20px)', minHeight: '100vh', position: 'relative' }}
         >
+            {/* Subtle Oriental Ink Wash Background */}
+            <div className="bg-mask-edge" style={{
+                position: 'fixed',
+                top: 0, left: 0, right: 0, bottom: 0,
+                backgroundImage: 'url("/input_bg.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.08,
+                zIndex: 0,
+                filter: 'sepia(0.5) contrast(1.2)'
+            }} />
+
             <div className="container" style={{ position: 'relative', zIndex: 2, maxWidth: '100%' }}>
                 <header style={{ textAlign: 'center', marginBottom: 'clamp(40px, 8vw, 80px)' }}>
                     <h2 style={{ color: 'var(--gold)', fontSize: '0.8rem', letterSpacing: '0.4em', textTransform: 'uppercase', opacity: 0.8 }}>Archive of Destiny</h2>
